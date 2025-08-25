@@ -1,7 +1,4 @@
-/* ------------------------------------------------------- */
-@import url(https://db.onlinewebfonts.com/c/10d20603786575dbbc1934f65aaf6114?family=Radikal+Trial);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css);
-/* ------------------------------------------------------- */
+
 
 * {
     margin: 0;
@@ -192,5 +189,6 @@ body {
         position: absolute;
         bottom: 20px;
     }
+
 
 }
