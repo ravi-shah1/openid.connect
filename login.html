@@ -66,28 +66,6 @@ body {
     overflow: auto;
 }
 
-.login-left .login-content .desc {
-    font-size: 14px;
-    color: #747778;
-    font-weight: 400;
-}
-
-.login-left .login-content .title {
-    font-size: 18px;
-    color: #7474C1;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -2%;
-}
-
-#show_hide_password i {
-    float: right;
-    margin-top: -22px;
-    margin-right: 15px;
-    cursor: pointer;
-    color: #747778;
-}
-
 .login-left .login-content .login-form p a {
     color: #7474C1;
     font-size: 14px;
@@ -197,7 +175,7 @@ body {
 }
 
 .localAccount .intro h2 {
-    font-size: 18px;
+    font-size: 16px;
     color: #7474C1;
     font-weight: 900;
     text-transform: uppercase;
@@ -205,17 +183,17 @@ body {
 }
 
 [data-name="SelfAsserted"] .intro p {
-    font-size: 18px;
+    font-size: 16px;
     color: #7474C1;
     font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
 }
 
 .verificationInfoText#email_intro {
     display: block !important;
     width: 100%;
-    font-size: 14px;
+    font-size: 12px;
     color: #747778;
     font-weight: 400;
     margin-bottom: 20px;
@@ -264,6 +242,11 @@ form .divider h2 {
     margin-bottom: 15px !important;
     display: flex;
     flex-direction: column;
+}
+
+.error {
+    color: #F95555;
+    font-size: 11px;
 }
 
 .entry-item .error,
@@ -412,11 +395,11 @@ button#email_ver_but_send {
     bottom: 40px;
 }
 
-#email_success {
+#email_success[aria-hidden="false"] {
     color: #78C043;
-    margin-bottom: 10px;
-    display: block !important;
     font-weight: 600;
+    display: block !important;
+    margin-bottom: 15px;
 }
 
 #claimVerificationServerError,
@@ -471,7 +454,11 @@ button#email_ver_but_send {
 
 #attributeList ul li:first-child {
     order: 99;
-    margin-top: 10px
+    /* margin-top: 10px */
+}
+
+#attributeVerification #fieldIncorrect {
+    margin-bottom: 10px;
 }
 
 
@@ -525,6 +512,7 @@ button#email_ver_but_send {
 
 
 </html>
+
 
 
 
