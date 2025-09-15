@@ -473,12 +473,23 @@ button#email_ver_but_send {
     }
 }
 
-.buttons button#email_ver_but_edit{
-	visibility: hidden;
+/* Hide Continue button when disabled (aria-disabled="true") */
+.buttons button#continue[aria-disabled="true"] {
+    display: none !important;
 }
 
-.buttons button:hover#email_ver_but_edit{
-	visibility: hidden;
+/* Show Continue button when enabled (aria-disabled="false") */
+.buttons button#continue[aria-disabled="false"] {
+    display: block !important;
+}
+
+/* Hide the Change Email button */
+.buttons button#email_ver_but_edit {
+    visibility: hidden !important;
+}
+
+.buttons button#email_ver_but_edit:hover {
+    visibility: hidden !important;
 }
 
 /* *******************B2C end********************* */
@@ -520,6 +531,7 @@ button#email_ver_but_send {
 
 
 </html>
+
 
 
 
