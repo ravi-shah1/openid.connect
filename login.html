@@ -124,7 +124,7 @@ body {
     }
 
     .login-left .login-content {
-        height: calc(100vh - 20vh);
+        height: auto;
         padding: 0%;
     }
 
@@ -133,8 +133,7 @@ body {
     }
 
     .login-left .login-footer {
-        position: absolute;
-        bottom: 20px;
+        padding-top: 50px;
     }
 
 }
@@ -239,7 +238,7 @@ form .divider h2 {
 .entry-item,
 .attrEntry {
     position: relative;
-   /** margin-bottom: 15px !important;**/
+    margin-bottom: 15px !important;
     display: flex;
     flex-direction: column;
 }
@@ -260,7 +259,7 @@ form .divider h2 {
 
 .attrEntry .verify {
     order: 4;
-     margin-top: 15px;
+    margin-top: 15px;
 }
 
 .entry-item .error p,
@@ -367,7 +366,7 @@ button#cancel {
 }
 
 button#email_ver_but_edit {
-    margin-top: 0px;
+    margin-top: 5px;
 }
 
 button,
@@ -493,11 +492,7 @@ button#email_ver_but_send {
 
 /* Hide the Change Email button always */
 .buttons button#email_ver_but_edit {
-    visibility: hidden !important;
-}
-
-.buttons button#email_ver_but_edit:hover {
-    visibility: hidden !important;
+    display: none !important;
 }
 
 /* *******************B2C end********************* */
@@ -540,6 +535,7 @@ button#email_ver_but_send {
 
 
 </html>
+
 
 
 
