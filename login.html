@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://ravi-shah1.github.io/openid.connect/assets/images/favicon.ico" type="image/x-icon">
-    <title>DCC</title>
+    <title>Dubai CommerCity</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         * {
@@ -68,7 +68,7 @@
 
         .header .logo-dark {
             width: 40%;
-            margin-left: 10px;
+            /* margin-left: 10px; */
         }
 
         .title {
@@ -77,7 +77,7 @@
         }
 
         .form {
-            height: calc(100vh - 250px);
+            height: calc(100vh - 200px);
             overflow: auto;
         }
 
@@ -132,7 +132,7 @@
             }
 
             .form {
-                height: calc(100vh - 200px);
+                height: calc(100vh - 150px);
             }
 
         }
@@ -158,10 +158,467 @@
             }
 
         }
+
+        /* *******Loader****** */
+        .page-loader {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgb(133 43 120 / 50%);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            animation: fadeOut 1s ease 3s forwards;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            border-top: 6px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .dots div {
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border-radius: 50%;
+            margin: 0 5px;
+            animation: blink 1.5s infinite;
+        }
+
+        .dots div:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .dots div:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            80%,
+            100% {
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* *******************B2C start********************* */
+
+        #api {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .claims-provider-list-buttons.social {
+            order: 3;
+            margin-top: -170px;
+            text-align: left;
+        }
+
+        .claims-provider-list-buttons.social button#ForgotPasswordExchange {
+            background-color: transparent;
+            border: none;
+            color: #852B78;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .intro,
+        .divider,
+        .verificationInfoText,
+        .helpLink,
+        #simplemodal-container,
+        #requiredFieldMissing {
+            display: none !important;
+        }
+
+        .localAccount .intro,
+        [data-name="SelfAsserted"] .intro {
+            display: block !important;
+        }
+
+        .localAccount .intro h2 {
+            font-size: 30px;
+            color: #141428;
+            font-weight: 300;
+            /* text-transform: uppercase; */
+            margin-bottom: 30px;
+        }
+
+        [data-name="SelfAsserted"] .intro p {
+            font-size: 16px;
+            color: #141428;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .verificationInfoText#email_intro {
+            display: block !important;
+            width: 100%;
+            font-size: 12px;
+            color: #747778;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .attrEntry:has(#email_label) {
+            display: block;
+        }
+
+        .attrEntry:has(#email_intro) .error {
+            position: absolute;
+            margin-top: 33px;
+        }
+
+        form .divider {
+            display: flex !important;
+            align-items: center;
+            text-align: center;
+            color: #747778;
+            margin: 20px 0;
+        }
+
+        form .divider::before,
+        form .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #01095F1F;
+        }
+
+        form .divider:not(:empty)::before {
+            margin-right: .75em;
+        }
+
+        form .divider:not(:empty)::after {
+            margin-left: .75em;
+        }
+
+        form .divider h2 {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .entry-item,
+        .attrEntry {
+            position: relative;
+            margin-bottom: 15px !important;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .error {
+            color: #F95555;
+            font-size: 11px;
+        }
+
+        .entry-item .error,
+        .attrEntry .error,
+        .attrEntry .verify .error {
+            order: 3;
+            text-align: left;
+            color: #F95555;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+
+        .attrEntry .verify {
+            order: 4;
+            margin-top: 30px;
+        }
+
+        .entry-item .error p,
+        .attrEntry .error p,
+        .attrEntry .verify .error p {
+            margin-bottom: 5px;
+        }
+
+        .entry-item input,
+        .attrEntry input,
+        .attrEntry .verify input {
+            display: block;
+            width: 100%;
+            padding: .4rem .75rem;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #141428;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: var(--bs-body-bg);
+            background-clip: padding-box;
+            border: none;
+            border-radius: 5px;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            height: calc(2rem + calc(var(--bs-border-width) * 2));
+            min-height: calc(1.5rem + calc(var(--bs-border-width) * 2));
+            margin-bottom: 10px;
+        }
+
+        .entry-item input:focus,
+        .entry-item input:focus-visible,
+        .attrEntry input:focus,
+        .attrEntry input:focus-visible,
+        .attrEntry .verify input:focus,
+        .attrEntry .verify input:focus-visible {
+            border: none !important;
+            box-shadow: none;
+        }
+
+        .entry-item input::placeholder,
+        .attrEntry input::placeholder,
+        .attrEntry .verify input::placeholder {
+            opacity: 0.5;
+        }
+
+        .entry-item label,
+        .attrEntry label,
+        .attrEntry .verify label {
+            position: absolute;
+            left: 0;
+            z-index: 2;
+            max-width: 100%;
+            overflow: hidden;
+            color: #141428;
+            text-align: start;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            pointer-events: none;
+            border: 1px solid transparent;
+            transform-origin: 0 0;
+            transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+            transform: scale(.85) translateY(-1.7rem) translateX(.15rem);
+        }
+
+        /* .entry-item:has(input:focus) label, */
+        .entry-item:has(input:not(:placeholder-shown)) label {
+            color: #141428;
+            opacity: 0.5;
+        }
+
+        button#next,
+        button#email_ver_but_send,
+        button#email_ver_but_verify,
+        button#email_ver_but_resend,
+        button#continue,
+        button#cancel,
+        button#email_ver_but_edit {
+            background-color: #852B78 !important;
+            border: 1px solid #852B78 !important;
+            color: #FFFFFF;
+            font-size: 14px;
+            width: 100%;
+            padding: 7px 10px;
+            border-radius: 5px;
+            font-weight: 400;
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+
+        button#email_ver_but_verify {
+            width: calc(50% - 7px) !important;
+            margin-right: 7px;
+        }
+
+        button#email_ver_but_resend,
+        button#cancel {
+            width: calc(50% - 7px) !important;
+            margin-left: 7px;
+        }
+
+        button#continue,
+        button#cancel {
+            margin-top: 0px;
+        }
+
+        button#email_ver_but_edit {
+            margin-top: 5px;
+        }
+
+        button,
+        input {
+            outline-color: transparent;
+        }
+
+        #createAccount {
+            padding-left: 5px;
+        }
+
+        ul {
+            list-style: none;
+            margin: unset;
+            padding: unset;
+        }
+
+        button#email_ver_but_send {
+            margin-top: 0px;
+        }
+
+        #email_fail_retry {
+            position: absolute;
+            left: 0;
+            bottom: 40px;
+        }
+
+        #email_success[aria-hidden="false"] {
+            color: #78C043;
+            font-weight: 400;
+            font-size: 12px;
+            display: block !important;
+            margin-bottom: 30px;
+        }
+
+        #claimVerificationServerError,
+        #passwordEntryMismatch {
+            margin-bottom: 10px;
+            color: #F95555;
+        }
+
+        #verifying_blurb {
+            margin: 20px 0px;
+            color: #F95555;
+        }
+
+        .CheckboxMultiSelect input {
+            --bs-form-check-bg: var(--bs-body-bg);
+            flex-shrink: 0;
+            width: 1em;
+            height: 1em;
+            margin-top: .25em;
+            vertical-align: top;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: var(--bs-form-check-bg);
+            background-image: var(--bs-form-check-bg-image);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border: var(--bs-border-width) solid var(--bs-border-color) !important;
+            padding: 10px;
+            min-height: 10px;
+            margin-top: -22px;
+            box-shadow: none !important;
+            cursor: pointer;
+        }
+
+        .CheckboxMultiSelect input:checked {
+            background-color: #852B78 !important;
+            border-color: #852B78 !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath fill='white' d='M530.8 134.1C545.1 144.5 548.3 164.5 537.9 178.8L281.9 530.8C276.4 538.4 267.9 543.1 258.5 543.9C249.1 544.7 240 541.2 233.4 534.6L105.4 406.6C92.9 394.1 92.9 373.8 105.4 361.3C117.9 348.8 138.2 348.8 150.7 361.3L252.2 462.8L486.2 141.1C496.6 126.8 516.6 123.6 530.9 134z'/%3E%3C/svg%3E%0A");
+            background-size: 80% 80%;
+        }
+
+        .CheckboxMultiSelect label {
+            margin-left: 30px;
+        }
+
+        #attributeList ul {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #attributeVerification #fieldIncorrect {
+            margin-bottom: 10px;
+        }
+
+        .create {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .create a {
+            color: #852B78;
+        }
+
+
+        @media (min-width: 1400px) {
+            .login-left .login-content {
+                height: calc(100vh - 10vh);
+            }
+
+            .entry-item,
+            .attrEntry {
+                margin-bottom: 1.5rem !important;
+            }
+        }
+
+        /* Hide Continue button when disabled (aria-disabled="true") - EMAIL VERIFICATION STEP ONLY */
+        [data-name="SelfAsserted"]:has(#email_ver_but_verify) .buttons button#continue[aria-disabled="true"],
+        [data-name="SelfAsserted"]:has(#email_ver_but_send) .buttons button#continue[aria-disabled="true"] {
+            display: none !important;
+        }
+
+        /* Show Continue button when enabled (aria-disabled="false") - EMAIL VERIFICATION STEP ONLY */
+        [data-name="SelfAsserted"]:has(#email_ver_but_verify) .buttons button#continue[aria-disabled="false"],
+        [data-name="SelfAsserted"]:has(#email_ver_but_send) .buttons button#continue[aria-disabled="false"] {
+            display: inline-block !important;
+        }
+
+        /* For PROFILE COMPLETION step - use default display (don't force block) */
+        [data-name="SelfAsserted"]:has(#givenName) .buttons button#continue,
+        [data-name="SelfAsserted"]:has(#newPassword) .buttons button#continue {
+            display: inline-block !important;
+        }
+
+        /* Hide the Change Email button always */
+        .buttons button#email_ver_but_edit {
+            display: none !important;
+        }
+
+        /* *******************B2C end********************* */
     </style>
 </head>
 
 <body>
+    <div class="page-loader">
+        <div class="spinner"></div>
+        <p>Please wait...</p>
+        <div class="dots">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <div class="container padding">
         <div class="row">
             <div class="col-12 col-lg-8 d-none d-lg-block">
@@ -174,13 +631,10 @@
                 <div class="card card-bg">
                     <div class="card-body">
                         <div class="header">
-                            <a href="#"><img src="https://ravi-shah1.github.io/openid.connect/assets/images/icon-back.svg" alt="img" /></a>
+                            <!-- <a href="#"><img src="assets/images/icon-back.svg" alt="img" /></a> -->
                             <img src="https://ravi-shah1.github.io/openid.connect/assets/images/logo-dark.svg" alt="img" class="logo-dark" />
                         </div>
                         <div class="content">
-                            <div class="title">
-                                Login
-                            </div>
                             <div class="form" id="api">
                                 <!-- *************Form************* -->
                             </div>
@@ -200,4 +654,3 @@
 </body>
 
 </html>
-
