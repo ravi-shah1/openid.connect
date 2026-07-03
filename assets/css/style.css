@@ -740,9 +740,9 @@ button#emailVerificationControl_but_send_code {
     text-transform: uppercase;
 }
 .footer .pipe {
-            border: 1px solid #01095F1F;
-            margin: 0px 10px;
-        }
+    border: 1px solid #01095F1F;
+    margin: 0px 10px;
+}
 
 
 /* *******************B2C end********************* */
