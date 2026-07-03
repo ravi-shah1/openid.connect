@@ -1,194 +1,744 @@
-
-
-* {
+​* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: "Radikal Trial";
-    font-size: 14px;
-    color: #000000;
     background-color: #FFFFFF;
-}
-
-.text-blue {
-    color: #000D5A;
-}
-
-.text-purple {
-    color: #7474C1;
-}
-
-.btn-primary {
-    background-color: #7474C1 !important;
-    border-color: #7474C1 !important;
-    font-size: 14px;
-}
-
-.login-left,
-.login-right {
+    background-image: url(https://lroidiccpstore.blob.core.windows.net/dsolroidccpstore/assets/images/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    font-family: "Oxygen", sans-serif;
+    font-size: 16px;
+    color: #141428;
 }
 
-.login-left .login-content {
-    width: 100%;
-    height: calc(100vh - 25vh);
-    text-align: center;
-}
-
-.login-left .login-content .title {
-    font-size: 18px;
-    color: #7474C1;
+.intro h2,
+.intro p {
+    font-family: "Inter", sans-serif;
+    color: #28609c;
+    font-size: 32px;
     font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -2%;
+    line-height: 32px;
+    letter-spacing: -3px;
 }
 
-.login-left .login-content .login-form {
-    padding: 0% 20%;
+.container.padding {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
-#show_hide_password i {
-    float: right;
-    margin-top: -22px;
-    margin-right: 15px;
-    cursor: pointer;
-    color: #747778;
-}
-
-.login-left .login-content .login-form p a {
-    color: #7474C1;
-    font-size: 14px;
+.page-title {
+    font-size: 40px;
     font-weight: 400;
-    text-decoration: none;
+    line-height: 100%;
+    letter-spacing: -2px;
+    color: #FFFFFF;
+    margin-top: 50%;
+    padding-bottom: 15px;
 }
 
-.login-left .login-footer p,
-.login-left .login-footer p a {
-    color: #000D5A;
+.card-bg {
+    background-color: #F5F5F5;
+    border-radius: 30px;
+    height: calc(100vh - 3rem);
+    padding: 5px;
+    border: none;
+}
+
+.header {
+    margin-bottom: 10px;
+}
+
+.header .logo-dark {
+    width: 40%;
+    /* margin-left: 10px; */
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.content {
+    padding-top: 20px;
+}
+
+.form {
+    height: calc(100vh - 170px);
+    overflow: auto;
+    padding-right: 10px;
+}
+
+.footer {
+    padding-top: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer p,
+.footer p a {
+    color: #141428;
     font-size: 12px;
     font-weight: 400;
     margin-bottom: 10px;
     text-align: center;
-    text-decoration: none;
 }
 
-.login-left .login-footer .pipe {
-    border: 1px solid #01095F1F;
-    margin: 0px 10px;
+
+
+
+@media (max-width: 768px) {
+    body {
+        background-image: none;
+    }
+
+    .container.padding {
+        padding-top: 0rem;
+        padding-bottom: 0rem;
+        background-color: #F5F5F5;
+    }
+
+    .card-bg {
+        height: 100vh;
+        border-radius: 0px;
+    }
+
+    .form {
+        height: calc(100vh - 150px);
+    }
+
 }
 
-.login-img {
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+@media (min-width: 1400px) {
+
+    .page-title {
+        margin-top: 75%;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .form {
+        height: calc(100vh - 240px);
+    }
+
 }
 
-.login-img .login-bg {
+@media (max-width: 460px) {
+    .header {
+        margin-top: 30px;
+    }
+}
+
+/* *******Loader****** */
+.page-loader {
     width: 100%;
-    height: calc(100vh - 25vh);
-    object-fit: cover;
-    border-radius: 60px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(25 65 118 / 50%);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    animation: fadeOut 1s ease 3s forwards;
 }
 
-.login-img p {
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(255, 255, 255, 0.2);
+    border-top: 6px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dots div {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 5px;
+    animation: blink 1.5s infinite;
+}
+
+.dots div:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.dots div:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    80%,
+    100% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* **********Password show/hide***********     */
+
+.pwd-wrap input[type="password"],
+.pwd-wrap input[type="text"] {
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.pwd-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.pwd-wrap::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    transform: translateY(-14px);
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    cursor: pointer;
+    color: #141428;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath d='M320 144C254.8 144 201.2 173.6 160.1 211.7C121.6 247.5 95 290 81.4 320C95 350 121.6 392.5 160.1 428.3C201.2 466.4 254.8 496 320 496C385.2 496 438.8 466.4 479.9 428.3C518.4 392.5 545 350 558.6 320C545 290 518.4 247.5 479.9 211.7C438.8 173.6 385.2 144 320 144zM127.4 176.6C174.5 132.8 239.2 96 320 96C400.8 96 465.5 132.8 512.6 176.6C559.4 220.1 590.7 272 605.6 307.7C608.9 315.6 608.9 324.4 605.6 332.3C590.7 368 559.4 420 512.6 463.4C465.5 507.1 400.8 544 320 544C239.2 544 174.5 507.2 127.4 463.4C80.6 419.9 49.3 368 34.4 332.3C31.1 324.4 31.1 315.6 34.4 307.7C49.3 272 80.6 220 127.4 176.6zM320 400C364.2 400 400 364.2 400 320C400 290.4 383.9 264.5 360 250.7C358.6 310.4 310.4 358.6 250.7 360C264.5 383.9 290.4 400 320 400zM240.4 311.6C242.9 311.9 245.4 312 248 312C283.3 312 312 283.3 312 248C312 245.4 311.8 242.9 311.6 240.4C274.2 244.3 244.4 274.1 240.5 311.5zM286 196.6C296.8 193.6 308.2 192.1 319.9 192.1C328.7 192.1 337.4 193 345.7 194.7C346 194.8 346.2 194.8 346.5 194.9C404.4 207.1 447.9 258.6 447.9 320.1C447.9 390.8 390.6 448.1 319.9 448.1C258.3 448.1 206.9 404.6 194.7 346.7C192.9 338.1 191.9 329.2 191.9 320.1C191.9 309.1 193.3 298.3 195.9 288.1C196.1 287.4 196.2 286.8 196.4 286.2C208.3 242.8 242.5 208.6 285.9 196.7z'/%3E%3C/svg%3E");
+}
+
+.pwd-wrap.show::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath d='M73 39.1C63.6 29.7 48.4 29.7 39.1 39.1C29.8 48.5 29.7 63.7 39 73.1L567 601.1C576.4 610.5 591.6 610.5 600.9 601.1C610.2 591.7 610.3 576.5 600.9 567.2L504.5 470.8C507.2 468.4 509.9 466 512.5 463.6C559.3 420.1 590.6 368.2 605.5 332.5C608.8 324.6 608.8 315.8 605.5 307.9C590.6 272.2 559.3 220.2 512.5 176.8C465.4 133.1 400.7 96.2 319.9 96.2C263.1 96.2 214.3 114.4 173.9 140.4L73 39.1zM208.9 175.1C241 156.2 278.1 144 320 144C385.2 144 438.8 173.6 479.9 211.7C518.4 247.4 545 290 558.5 320C544.9 350 518.3 392.5 479.9 428.3C476.8 431.1 473.7 433.9 470.5 436.7L425.8 392C439.8 371.5 448 346.7 448 320C448 249.3 390.7 192 320 192C293.3 192 268.5 200.2 248 214.2L208.9 175.1zM390.9 357.1L282.9 249.1C294 243.3 306.6 240 320 240C364.2 240 400 275.8 400 320C400 333.4 396.7 346 390.9 357.1zM135.4 237.2L101.4 203.2C68.8 240 46.4 279 34.5 307.7C31.2 315.6 31.2 324.4 34.5 332.3C49.4 368 80.7 420 127.5 463.4C174.6 507.1 239.3 544 320.1 544C357.4 544 391.3 536.1 421.6 523.4L384.2 486C364.2 492.4 342.8 496 320 496C254.8 496 201.2 466.4 160.1 428.3C121.6 392.6 95 350 81.5 320C91.9 296.9 110.1 266.4 135.5 237.2z'/%3E%3C/svg%3E");
+}
+
+/* *******************B2C start********************* */
+
+#api {
+    display: flex;
+    flex-direction: column;
+}
+
+.claims-provider-list-buttons.social {
+    order: 3;
+    margin-top: -170px;
+    text-align: left;
+}
+
+.claims-provider-list-buttons.social button#ForgotPasswordExchange {
+    background-color: transparent;
+    border: none;
+    color: #194176;
     font-size: 14px;
-    color: #000D5A;
-    margin-top: 15px;
-    margin-bottom: 15px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: -2%;
 }
 
-.form-control {
-    color: #000D5A;
+.intro,
+.divider,
+.verificationInfoText,
+.helpLink,
+#simplemodal-container,
+#requiredFieldMissing {
+    display: none !important;
+}
+
+.localAccount .intro,
+[data-name="SelfAsserted"] .intro {
+    display: block !important;
+}
+
+.localAccount .intro h2 {
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    color: #28609c;
+    font-weight: 900;
+    line-height: 32px;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+}
+
+[data-name="SelfAsserted"] .intro p {
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    color: #28609c;
+    font-weight: 900;
+    line-height: 32px;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+}
+
+.verificationInfoText#email_intro {
+    display: block !important;
+    width: 100%;
+    font-size: 12px;
+    color: #747778;
+    font-weight: 400;
+    margin-bottom: 30px;
+    min-height: 36px;
+    word-break: break-all;
+}
+
+.attrEntry:has(#email_label) {
+    display: block;
+}
+
+.attrEntry:has(#email_intro) .error {
+    position: absolute;
+    margin-top: 33px;
+}
+
+form .divider {
+    display: flex !important;
+    align-items: center;
+    text-align: center;
+    color: #747778;
+    margin: 20px 0;
+}
+
+form .divider::before,
+form .divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #01095F1F;
+}
+
+form .divider:not(:empty)::before {
+    margin-right: .75em;
+}
+
+form .divider:not(:empty)::after {
+    margin-left: .75em;
+}
+
+form .divider h2 {
     font-size: 14px;
+    margin: 0;
 }
 
-.form-control:focus {
-    border-color: #7474C1;
-    box-shadow: 0 0 0 .10rem rgb(116 116 193 / 25%);
+.entry-item,
+.attrEntry {
+    position: relative;
+    margin-bottom: 15px !important;
+    display: flex;
+    flex-direction: column;
 }
 
-.form-floating>.form-control,
-.form-floating>.form-control-plaintext {
+.entry-item input[type="text"],
+.attrEntry input[type="text"] {
+    padding-left: 40px;
+}
+
+.Readonly .attrEntry::before,
+.entry-item::before,
+.custom-email::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    transform: translateY(-14px);
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.94358 3.25H14.0564C15.8942 3.24998 17.3498 3.24997 18.489 3.40314C19.6614 3.56076 20.6104 3.89288 21.3588 4.64124C22.1071 5.38961 22.4392 6.33856 22.5969 7.51098C22.75 8.65019 22.75 10.1058 22.75 11.9436V12.0564C22.75 13.8942 22.75 15.3498 22.5969 16.489C22.4392 17.6614 22.1071 18.6104 21.3588 19.3588C20.6104 20.1071 19.6614 20.4392 18.489 20.5969C17.3498 20.75 15.8942 20.75 14.0564 20.75H9.94359C8.10583 20.75 6.65019 20.75 5.51098 20.5969C4.33856 20.4392 3.38961 20.1071 2.64124 19.3588C1.89288 18.6104 1.56076 17.6614 1.40314 16.489C1.24997 15.3498 1.24998 13.8942 1.25 12.0564V11.9436C1.24998 10.1058 1.24997 8.65019 1.40314 7.51098C1.56076 6.33856 1.89288 5.38961 2.64124 4.64124C3.38961 3.89288 4.33856 3.56076 5.51098 3.40314C6.65019 3.24997 8.10582 3.24998 9.94358 3.25ZM5.71085 4.88976C4.70476 5.02502 4.12511 5.27869 3.7019 5.7019C3.27869 6.12511 3.02502 6.70476 2.88976 7.71085C2.75159 8.73851 2.75 10.0932 2.75 12C2.75 13.9068 2.75159 15.2615 2.88976 16.2892C3.02502 17.2952 3.27869 17.8749 3.7019 18.2981C4.12511 18.7213 4.70476 18.975 5.71085 19.1102C6.73851 19.2484 8.09318 19.25 10 19.25H14C15.9068 19.25 17.2615 19.2484 18.2892 19.1102C19.2952 18.975 19.8749 18.7213 20.2981 18.2981C20.7213 17.8749 20.975 17.2952 21.1102 16.2892C21.2484 15.2615 21.25 13.9068 21.25 12C21.25 10.0932 21.2484 8.73851 21.1102 7.71085C20.975 6.70476 20.7213 6.12511 20.2981 5.7019C19.8749 5.27869 19.2952 5.02502 18.2892 4.88976C17.2615 4.75159 15.9068 4.75 14 4.75H10C8.09318 4.75 6.73851 4.75159 5.71085 4.88976ZM5.42383 7.51986C5.68901 7.20165 6.16193 7.15866 6.48014 7.42383L8.63903 9.22291C9.57199 10.0004 10.2197 10.5384 10.7666 10.8901C11.2959 11.2306 11.6549 11.3449 12 11.3449C12.3451 11.3449 12.7041 11.2306 13.2334 10.8901C13.7803 10.5384 14.428 10.0004 15.361 9.22291L17.5199 7.42383C17.8381 7.15866 18.311 7.20165 18.5762 7.51986C18.8413 7.83807 18.7983 8.31099 18.4801 8.57617L16.2836 10.4066C15.3973 11.1452 14.6789 11.7439 14.0448 12.1517C13.3843 12.5765 12.7411 12.8449 12 12.8449C11.2589 12.8449 10.6157 12.5765 9.95518 12.1517C9.32112 11.7439 8.60272 11.1452 7.71636 10.4066L5.51986 8.57617C5.20165 8.31099 5.15866 7.83807 5.42383 7.51986Z' fill='%23011530'/%3E%3C/svg%3E%0A") !important;
+}
+
+.verificationInfoText#email_intro,
+#email_success[aria-hidden="false"] {
+    min-height: 55px;
+}
+
+li.TextBox .custom-email::before {
+    top: 105px !important;
+}
+
+
+.pwd-wrap::before,
+.entry-item.pwd-wrap::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    transform: translateY(-14px);
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='4' y='9' width='16' height='12' rx='4' stroke='%23011530' stroke-width='1.5'/%3E%3Cpath d='M12 16L12 14' stroke='%23011530' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 9V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7L8 9' stroke='%23011530' stroke-width='1.5'/%3E%3C/svg%3E%0A") !important;
+}
+
+.TextBox .attrEntry::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    transform: translateY(-14px);
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.0001 1.25C9.37678 1.25 7.25013 3.37665 7.25013 6C7.25013 8.62335 9.37678 10.75 12.0001 10.75C14.6235 10.75 16.7501 8.62335 16.7501 6C16.7501 3.37665 14.6235 1.25 12.0001 1.25ZM8.75013 6C8.75013 4.20507 10.2052 2.75 12.0001 2.75C13.7951 2.75 15.2501 4.20507 15.2501 6C15.2501 7.79493 13.7951 9.25 12.0001 9.25C10.2052 9.25 8.75013 7.79493 8.75013 6Z' fill='%23011530'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.0001 12.25C9.68658 12.25 7.55506 12.7759 5.97558 13.6643C4.41962 14.5396 3.25013 15.8661 3.25013 17.5L3.25007 17.602C3.24894 18.7638 3.24752 20.222 4.52655 21.2635C5.15602 21.7761 6.03661 22.1406 7.22634 22.3815C8.4194 22.6229 9.97436 22.75 12.0001 22.75C14.0259 22.75 15.5809 22.6229 16.7739 22.3815C17.9637 22.1406 18.8443 21.7761 19.4737 21.2635C20.7527 20.222 20.7513 18.7638 20.7502 17.602L20.7501 17.5C20.7501 15.8661 19.5807 14.5396 18.0247 13.6643C16.4452 12.7759 14.3137 12.25 12.0001 12.25ZM4.75013 17.5C4.75013 16.6487 5.37151 15.7251 6.71098 14.9717C8.02693 14.2315 9.89541 13.75 12.0001 13.75C14.1049 13.75 15.9733 14.2315 17.2893 14.9717C18.6288 15.7251 19.2501 16.6487 19.2501 17.5C19.2501 18.8078 19.2098 19.544 18.5265 20.1004C18.156 20.4022 17.5366 20.6967 16.4763 20.9113C15.4194 21.1252 13.9744 21.25 12.0001 21.25C10.0259 21.25 8.58087 21.1252 7.52393 20.9113C6.46366 20.6967 5.84425 20.4022 5.47372 20.1004C4.79045 19.544 4.75013 18.8078 4.75013 17.5Z' fill='%23011530'/%3E%3C/svg%3E%0A");
+}
+
+.error {
+    color: #F95555;
+    font-size: 11px;
+}
+
+.error.pageLevel {
+    padding-bottom: 10px;
+}
+
+.entry-item .error,
+.attrEntry .error,
+.attrEntry .verify .error {
+    order: 3;
+    text-align: left;
+    color: #F95555;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.attrEntry .verify {
+    order: 4;
+    margin-top: 30px;
+}
+
+.entry-item .error p,
+.attrEntry .error p,
+.attrEntry .verify .error p {
+    margin-bottom: 5px;
+}
+
+.entry-item input,
+.attrEntry input,
+.attrEntry .verify input {
+    display: block;
+    width: 100%;
     padding: .4rem .75rem;
-}
-
-.form-floating>.form-control-plaintext:focus,
-.form-floating>.form-control-plaintext:not(:placeholder-shown),
-.form-floating>.form-control:focus,
-.form-floating>.form-control:not(:placeholder-shown) {
-    padding-top: .625rem;
-    padding-bottom: .625rem;
-}
-
-.form-floating>.form-control,
-.form-floating>.form-control-plaintext,
-.form-floating>.form-select {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #011530;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: none;
+    border-radius: 5px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     height: calc(2rem + calc(var(--bs-border-width) * 2));
     min-height: calc(1.5rem + calc(var(--bs-border-width) * 2));
+    margin-bottom: 10px;
 }
 
-.form-floating>label {
-    padding: .4rem .75rem;
+.entry-item input:focus,
+.entry-item input:focus-visible,
+.attrEntry input:focus,
+.attrEntry input:focus-visible,
+.attrEntry .verify input:focus,
+.attrEntry .verify input:focus-visible {
+    border: none !important;
+    box-shadow: none;
 }
 
-.form-floating>.form-control-plaintext~label,
-.form-floating>.form-control:focus~label,
-.form-floating>.form-control:not(:placeholder-shown)~label,
-.form-floating>.form-select~label {
-    transform: scale(.85) translateY(-.9rem) translateX(.15rem);
-    background-color: #FFFFFF;
-    height: 25px;
-    padding: .15rem .25rem;
-    margin-left: .5rem;
+.entry-item input::placeholder,
+.attrEntry input::placeholder,
+.attrEntry .verify input::placeholder {
+    opacity: 0.5;
 }
 
-.form-floating>.form-control:focus~label {
-    color: #7474C1;
+.entry-item label,
+.attrEntry label,
+.attrEntry .verify label {
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    max-width: 100%;
+    overflow: hidden;
+    color: #011530;
+    opacity: 0.5;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transform-origin: 0 0;
+    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+    transform: scale(.85) translateY(-1.7rem) translateX(.15rem);
 }
 
-.form-floating.error .form-control {
-    border-color: #F95555;
+/* .entry-item:has(input:focus) label, */
+.entry-item:has(input:not(:placeholder-shown)) label {
+    color: #141428;
+    opacity: 0.5;
 }
 
-.form-floating.error label, .form-floating.error .error-msg {
-    color: #F95555 !important;
-    text-align: left !important;
+button#next,
+button#email_ver_but_send,
+button#email_ver_but_verify,
+button#email_ver_but_resend,
+button#continue,
+button#cancel,
+button#email_ver_but_edit {
+    background-color: #194176 !important;
+    background: radial-gradient(33.86% 40% at 50% 110.91%, #2FB6DC 0%, #194176 100%);
+    border: none !important;
+    color: #FFFFFF;
+    font-size: 14px;
+    width: 100%;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-weight: 400;
+    margin-top: 25px;
+    text-transform: uppercase;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+button#email_ver_but_verify {
+    width: calc(50% - 7px) !important;
+    margin-right: 7px;
+}
 
-    .login-left,
-    .login-right {
-        height: auto;
-        padding: 20px 0px;
-    }
+button#email_ver_but_resend,
+button#cancel {
+    width: calc(50% - 7px) !important;
+    margin-left: 7px;
+}
 
+button#continue,
+button#cancel {
+    margin-top: 0px;
+}
+
+button#email_ver_but_edit {
+    margin-top: 5px;
+}
+
+button,
+input,
+button:focus,
+input:focus {
+    outline: none !important;
+}
+
+#createAccount {
+    padding-left: 5px;
+}
+
+ul {
+    list-style: none;
+    margin: unset;
+    padding: unset;
+}
+
+button#email_ver_but_send {
+    margin-top: 0px;
+}
+
+#email_fail_retry {
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+}
+
+#email_success[aria-hidden="false"] {
+    color: #78C043;
+    font-weight: 400;
+    font-size: 12px;
+    display: block !important;
+    margin-bottom: 30px;
+}
+
+#claimVerificationServerError,
+#passwordEntryMismatch {
+    margin-bottom: 30px;
+    color: #F95555;
+}
+
+#verifying_blurb {
+    margin: 20px 0px;
+    color: #F95555;
+}
+
+.CheckboxMultiSelect input {
+    --bs-form-check-bg: var(--bs-body-bg);
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: .25em;
+    vertical-align: top;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--bs-form-check-bg);
+    background-image: var(--bs-form-check-bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: var(--bs-border-width) solid var(--bs-border-color) !important;
+    padding: 10px;
+    min-height: 10px;
+    margin-top: -18px;
+    box-shadow: none !important;
+    cursor: pointer;
+}
+
+.CheckboxMultiSelect input:checked {
+    background-color: #194176 !important;
+    border-color: #194176 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath fill='white' d='M530.8 134.1C545.1 144.5 548.3 164.5 537.9 178.8L281.9 530.8C276.4 538.4 267.9 543.1 258.5 543.9C249.1 544.7 240 541.2 233.4 534.6L105.4 406.6C92.9 394.1 92.9 373.8 105.4 361.3C117.9 348.8 138.2 348.8 150.7 361.3L252.2 462.8L486.2 141.1C496.6 126.8 516.6 123.6 530.9 134z'/%3E%3C/svg%3E%0A");
+    background-size: 80% 80%;
+}
+
+.CheckboxMultiSelect label {
+    margin-left: 30px;
+    white-space: normal;
+    line-height: 20px;
+}
+
+#attributeList ul {
+    display: flex;
+    flex-direction: column;
+}
+
+#attributeVerification #fieldIncorrect {
+    margin-bottom: 10px;
+}
+
+.create {
+    font-size: 12px;
+    text-align: center;
+}
+
+.create a {
+    color: #194176;
+}
+
+
+@media (min-width: 1400px) {
     .login-left .login-content {
-        height: auto;
+        height: calc(100vh - 10vh);
     }
 
-    .login-left .login-content .login-logo {
-        width: 130px;
+    .entry-item,
+    .attrEntry {
+        margin-bottom: 1.5rem !important;
     }
-
-    .login-left .login-content .login-form {
-        padding: 0%;
-    }
-
-    .login-left .login-footer {
-        position: absolute;
-        bottom: 20px;
-    }
-
-
 }
+
+/* Hide Continue button when disabled (aria-disabled="true") - EMAIL VERIFICATION STEP ONLY */
+[data-name="SelfAsserted"]:has(#email_ver_but_verify) .buttons button#continue[aria-disabled="true"],
+[data-name="SelfAsserted"]:has(#email_ver_but_send) .buttons button#continue[aria-disabled="true"] {
+    display: none !important;
+}
+
+/* Show Continue button when enabled (aria-disabled="false") - EMAIL VERIFICATION STEP ONLY */
+[data-name="SelfAsserted"]:has(#email_ver_but_verify) .buttons button#continue[aria-disabled="false"],
+[data-name="SelfAsserted"]:has(#email_ver_but_send) .buttons button#continue[aria-disabled="false"] {
+    display: inline-block !important;
+}
+
+/* For PROFILE COMPLETION step - use default display (don't force block) */
+[data-name="SelfAsserted"]:has(#givenName) .buttons button#continue,
+[data-name="SelfAsserted"]:has(#newPassword) .buttons button#continue {
+    display: inline-block !important;
+}
+
+/* Hide the Change Email button always */
+.buttons button#email_ver_but_edit {
+    display: none !important;
+}
+
+/* Hide B2C's built-in "Please wait" message */
+#verifying_blurb {
+    display: none !important;
+}
+
+@supports (-webkit-touch-callout: none) {
+    input {
+        font-size: 16px !important;
+    }
+}
+
+/*Fix as per new email template */
+#emailVerificationControl_but_change_claims {
+    display: none !important;
+}
+
+/* Hide the Continue button when aria-disabled="true" */
+#continue[aria-disabled="true"] {
+    display: none;
+}
+
+/* Show the Continue button when aria-disabled="false" */
+#continue[aria-disabled="false"] {
+    display: inline-block;
+}
+
+#emailVerificationControl_success_message {
+    color: #78C043;
+    font-weight: 400;
+    font-size: 12px;
+    display: block !important;
+    margin-bottom: 30px;
+}
+
+button#emailVerificationControl_but_verify_code,
+button#emailVerificationControl_but_send_new_code,
+button#emailVerificationControl_but_send_code {
+    background-color: #194176 !important;
+    background: radial-gradient(33.86% 40% at 50% 110.91%, #2FB6DC 0%, #194176 100%);
+    border: none !important;
+    color: #FFFFFF;
+    font-size: 14px;
+    width: 100%;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-weight: 400;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+
+/* *******************B2C end********************* */
