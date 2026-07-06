@@ -70,6 +70,8 @@
         });
         
         // Function to show loader
+		//check loader
+		
         function showLoader() {
             //console.log('Showing loader');
             loaderShown = true;
@@ -162,6 +164,7 @@
     });
 
     // Keep trying to initialize every 100ms until elements are found
+
     var initAttempts = 0;
     var maxAttempts = 100;
     
