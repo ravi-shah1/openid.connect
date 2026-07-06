@@ -70,8 +70,6 @@
         });
         
         // Function to show loader
-		//check loader
-		
         function showLoader() {
             //console.log('Showing loader');
             loaderShown = true;
