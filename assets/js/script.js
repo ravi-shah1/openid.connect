@@ -127,7 +127,7 @@
             //console.log('Error observer attached');
         }
         
-        // If working div exists, observe it
+        // If working div exists, observe it else ok
         if (workingDiv && pageLoader) {
             var config = { attributes: true, attributeFilter: ['style'] };
             
