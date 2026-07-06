@@ -95,7 +95,7 @@
             //console.log('Sign In button found - attaching click event');
             nextBtn.addEventListener('click', function() {
                 //console.log('Sign in button clicked');
-               // showLoader();
+                showLoader();
             });
         }
         
@@ -104,7 +104,7 @@
             //console.log('Create/Continue button found - attaching click event');
             continueBtn.addEventListener('click', function() {
                 //console.log('Create/Continue button clicked');
-               // showLoader();
+                showLoader();
             });
         }
         
@@ -137,7 +137,7 @@
                     if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
                         if (workingDiv.style.display === 'block') {
                             //console.log('Working div visible - showing loader');
-                           // showLoader();
+                            showLoader();
                             if (nextBtn) nextBtn.disabled = true;
                             if (continueBtn) continueBtn.disabled = true;
                         }
