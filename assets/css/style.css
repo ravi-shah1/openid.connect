@@ -169,7 +169,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeOut 0.15s ease 0.15s forwards;
+    animation: fadeOut 0.2s ease 0.2s forwards;
 }
 
 .dots {
