@@ -70,6 +70,7 @@
         });
         
         // Function to show loader
+		// added comments
         function showLoader() {
             //console.log('Showing loader');
             loaderShown = true;
