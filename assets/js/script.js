@@ -18,7 +18,7 @@
                 pageLoader.style.display = 'none';
             }, 300);
         }
-        
+        //adding comment
         // Clear timeout if exists
         if (loaderTimeout) {
             clearTimeout(loaderTimeout);
