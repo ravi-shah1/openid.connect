@@ -749,6 +749,10 @@ button#emailVerificationControl_but_send_code {
     border: 1px solid #01095F1F;
     margin: 0px 10px;
 }
+#simplemodal-overlay {
+    display: none !important;
+}
+
 
 
 /* *******************B2C end********************* */
