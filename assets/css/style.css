@@ -173,7 +173,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background: rgb(25 65 118 / 50%);
+    background: rgba(25, 65, 118, 0.20) !important;
     z-index: 1000;
     display: flex;
     justify-content: center;
