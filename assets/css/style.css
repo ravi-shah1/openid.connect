@@ -750,7 +750,7 @@ button#emailVerificationControl_but_send_code {
     margin: 0px 10px;
 }
 #simplemodal-overlay {
-    display: none !important;
+    background: rgba(25, 65, 118, 0.20) !important;
 }
 
 
